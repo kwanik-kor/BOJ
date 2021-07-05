@@ -7,7 +7,7 @@ Baekjoon Online Judge - explanation of solved problems and complete code
 
 ## :bookmark_tabs: Contents 
 
-[Solved Problem Indexes](./index)
+[Solved Problem Indexes](./src/index)
 
 
 [comment]: <> ([![solved.ac tier]&#40;http://mazassumnida.wtf/api/generate_badge?boj=rhksdlr134&#41;]&#40;https://solved.ac/rhksdlr134&#41;)
