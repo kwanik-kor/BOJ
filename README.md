@@ -14,5 +14,10 @@ Baekjoon Online Judge - explanation of solved problems and complete code
 
 [9204 체스](./src/bfs/bfs_9204_chess.java)
 
+---
+### Try In Another Way!!! :astonished:
+
+[9177 단어 섞기 - BFS 로 풀었으나 DP 로 풀어볼 것](./src/bfs/bfs_9177_mixWord.java)
+
 [comment]: <> ([![solved.ac tier]&#40;http://mazassumnida.wtf/api/generate_badge?boj=rhksdlr134&#41;]&#40;https://solved.ac/rhksdlr134&#41;)
 [comment]: <> ([![solved.ac tier]&#40;http://mazassumnida.wtf/api/mini/generate_badge?boj=rhksdlr134&#41;]&#40;https://solved.ac/rhksdlr134&#41;)
