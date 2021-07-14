@@ -34,7 +34,7 @@ public class bfs_15558_jumpGame {
 
             while(size-- > 0) {
                 Point now = q.poll();
-                
+
                 if(now.x < time) continue; // 체크하지 않아서 틀렸었던 조건
 
                 for(int i = 0; i < 3; i++) {
