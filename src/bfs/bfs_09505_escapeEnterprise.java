@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  *   - map을 벗어나야 하기 때문에 기존 map에서 안팎으로 바운더리를 하나 더 주고,
  *     PriorityQueue를 이용해서 최단 경로 찾아냄
  */
-public class bfs_9505_escapeEnterprise {
+public class bfs_09505_escapeEnterprise {
 
     static int K, W, H;
     static int[] dy = {-1, 0, 1, 0};

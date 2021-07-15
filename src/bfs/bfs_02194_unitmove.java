@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  * 3. 유사문제
  *  - 16973번 직사각형 탈출 : https://www.acmicpc.net/problem/16973
  */
-public class bfs_2194_unitmove {
+public class bfs_02194_unitmove {
 
     static int N, M, A, B, K;
     static int[] dy = {-1, 0, 1, 0};

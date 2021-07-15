@@ -12,7 +12,7 @@ import java.util.*;
  *   > 각 노드에서 최소 이동 거리 중 최장거리가 점수
  *   > 최종적으로 가장 작은 점수와 해당 점수인 유저들을 출력
  */
-public class bfs_2660_president {
+public class bfs_02660_president {
 
     static final int INF = 987654321;
 

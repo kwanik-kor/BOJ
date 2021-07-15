@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
  *  - 문제 상에서 최초 방에 진입하는 것도 횟수로 취급하기 때문에 최종 결과에 +1
  *    > BFS + Bitmask는 너무 재밋어!
  */
-public class bfs_4956_amazingMazes {
+public class bfs_04956_amazingMazes {
 
     static int h, w;
 

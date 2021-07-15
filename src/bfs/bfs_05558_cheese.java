@@ -8,7 +8,7 @@ import java.util.*;
  * 2. 풀이
  *  - 단순 BFS로, cheese에 도달할 때마다 방문지점을 갱신해주면 됨
  */
-public class bfs_5558_cheese {
+public class bfs_05558_cheese {
 
     static int H, W, N;
     static int[] dy = {-1, 0, 1, 0};

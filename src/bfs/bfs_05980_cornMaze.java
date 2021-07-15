@@ -10,7 +10,7 @@ import java.util.*;
  *   > Slide 를 만나면 반드시 타야 한다는 점이 핵심
  *   > Slide 의 출발점만을 방문처리하고 q에는 도착점을 집어 넣음
  */
-public class bfs_5980_cornMaze {
+public class bfs_05980_cornMaze {
 
     static int N, M;
     static int[] dy = {-1, 0, 1, 0};

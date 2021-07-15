@@ -13,7 +13,7 @@ import java.util.Queue;
  *  - 단순 BFS 로 최종 답을 출력 하면 메모리 초과!
  *  - 오른쪽과 아래쪽으로만 이동할 수 있기 때문에, DP를 이용해 경우의 수 체크
  */
-public class bfs_5011_robotsOnAGrid {
+public class bfs_05011_robotsOnAGrid {
 
     static final int MOD = 2147483647;
 

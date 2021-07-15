@@ -9,7 +9,7 @@ import java.util.*;
  *   - Map과 Set을 이용한 BFS 처리
  *    > Set을 통해 중복 방문을 예방함
  */
-public class bfs_6382_nCredibleMazes {
+public class bfs_06382_nCredibleMazes {
 
     static int N;
     static String start, end;

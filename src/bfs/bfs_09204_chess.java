@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  *  - 순수 BFS로 품
  *  - 근데 시간이 왜이래.... 시간 줄이도록 다시 풀어보3
  */
-public class bfs_9204_chess {
+public class bfs_09204_chess {
 
     static final int SIZE = 8;
 

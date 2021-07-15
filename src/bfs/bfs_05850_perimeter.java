@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  *  - 바보같이 N 만큼 배열 길이 잡았다가 두 번 메모리 초과남...
  *    > 문제 제대로 읽기...
  */
-public class bfs_5850_perimeter {
+public class bfs_05850_perimeter {
 
     static int N;
     static int[] dy = {-1, 0, 1, 0};

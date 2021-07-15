@@ -10,7 +10,7 @@ import java.util.*;
  *  - 처음 한 번 bfs를 돌려서 최초 바깥 공기를 파악한 후, 치즈를 순차적으로 녹이게끔 작업
  *  - bitmask를 사용할 경우 좀 더 빠른 풀이가 가능할 것으로 보임.
  */
-public class bfs_2636_cheese {
+public class bfs_02636_cheese {
 
     static int N, M;
     static int[] dy = {-1, 0, 1, 0};

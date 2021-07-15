@@ -9,7 +9,7 @@ import java.io.*;
  *  - 대문자가 우선이기 때문에, 배열에 대문자를 앞으로 배치시킴
  *    > 최종 결과 print 시, 순차적으로 순회 시 자연스럽게 대문자가 앞에 오게 됨
  */
-public class floyd_2224_proofProposition {
+public class floyd_02224_proofProposition {
 
     static int[][] map;
 

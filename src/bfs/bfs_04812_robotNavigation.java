@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
  *  - modula 가 1이 될 수도 있음을 간과하고 return 받은 값이 0일 경우에는 -1로 프린트하게 함
  *    > 1번 틀림 ㅠㅠㅠㅠㅠㅠ
  */
-public class bfs_4812_robotNavigation {
+public class bfs_04812_robotNavigation {
 
     static StringTokenizer st;
     static final int INF = 987654321;

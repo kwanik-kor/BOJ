@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  * 2. 풀이
  *  - 금이 있다면 바로 진행할 수 있으나, 갈 수 있는 곳인데 사방에 트랩이 있다면 더 이상 진행할 수 없음
  */
-public class bfs_5048_gettingGold {
+public class bfs_05048_gettingGold {
 
     static int H, W;
     static int[] dy = {-1, 0, 1, 0};

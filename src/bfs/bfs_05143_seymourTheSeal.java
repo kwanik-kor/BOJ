@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  *  - 기름이 얼마나 묻었는지 여부를 확인하기 위해 visit 배열을 3차원 배열로 이용
  *  - 기름에 한 번 묻으면 이것이 없어진다는 조건은 없었기 때문에, 지나갈 때마다 새로 묻어야 함
  */
-public class bfs_5143_seymourTheSeal {
+public class bfs_05143_seymourTheSeal {
 
     static int M, N;
     static int[] dy = {-1, 0, 1, 0};

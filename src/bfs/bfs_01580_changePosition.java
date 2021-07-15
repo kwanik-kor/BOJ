@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * 1. 문제 링크 : https://www.acmicpc.net/problem/1580
  */
-public class bfs_1580_changePosition {
+public class bfs_01580_changePosition {
 
     static int N, M;
     static int[] dy = {0, 1, 0, -1, 0, 1, 1, -1, -1};

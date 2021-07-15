@@ -10,7 +10,7 @@ import java.util.*;
  * 3. 풀이2
  *   - DP로도 풀어보자
  */
-public class bfs_9177_mixWord {
+public class bfs_09177_mixWord {
 
     static int a_len, b_len, length;
     static char[] a, b, comb;

@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  *  - 모든 구슬에 대해 무게를 체크해야 하기 때문에, 플로이드-와샬 을 이용해 관계를 만들어 놓음
  *  - 가볍거나 무거운 개수가 (N - 1) / 2 보다 큰 경우 중간이 절대 될 수 없음
  */
-public class floyd_2617_findMarble {
+public class floyd_02617_findMarble {
 
     static final int INF = 987654321;
 
