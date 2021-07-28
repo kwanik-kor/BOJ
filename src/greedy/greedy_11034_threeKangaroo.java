@@ -24,6 +24,7 @@ public class greedy_11034_threeKangaroo {
                 ans = Math.max(b - a, c - b) - 1;
             }
             bw.write(ans + "\n");
+            
         }
 
         bw.flush();
