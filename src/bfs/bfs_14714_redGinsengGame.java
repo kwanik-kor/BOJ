@@ -8,7 +8,7 @@ import java.util.*;
  * 2. 풀이
  *  - 각 차례에 대해 순차적으로 visit 처리를 통해 두 지목점이 같아지는지 체크하면됨
  */
-public class bfs_14705_redGinsengGame {
+public class bfs_14714_redGinsengGame {
 
     static int N, A, B, dA, dB;
     static boolean[][][] visit;
