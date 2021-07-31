@@ -23,6 +23,7 @@ public class bfs_14714_redGinsengGame {
             if(now.a == now.b)
                 return now.n;
 
+            
             if(now.turn == 1) {
                 int[] next = getNextNode(now.a, dA);
                 for(int i = 0; i < 2; i++) {
