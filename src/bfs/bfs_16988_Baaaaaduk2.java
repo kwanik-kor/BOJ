@@ -22,11 +22,12 @@ public class bfs_16988_Baaaaaduk2 {
             for(int j = 0; j < M; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
                 if(map[i][j] == 2) {
-                    
+
                 }
             }
         }
 
+        
 
 
         bw.flush();
