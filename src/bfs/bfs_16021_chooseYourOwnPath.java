@@ -62,6 +62,7 @@ public class bfs_16021_chooseYourOwnPath {
             }
             for(int j = 0; j < n; j++) {
                 page.get(i).add(Integer.parseInt(st.nextToken()));
+                // 
             }
         }
 

@@ -27,7 +27,7 @@ public class bfs_16988_Baaaaaduk2 {
             }
         }
 
-        
+
 
 
         bw.flush();
