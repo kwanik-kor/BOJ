@@ -1,70 +1,75 @@
 package bfs;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
+/**
+ * 1. 문제 링크 : https://www.acmicpc.net/problem/10484
+ * 2. 풀이
+ *  - 이동했던 경로의 역방향으로 이동할 수 있다는 조건이 있었다.
+ *  - 그렇다 하더라도, 그냥 단일방향으로 진행했을 때 이미 방문한 노드가 더 cost가 적었다면 이를 사용하면 되는게 아닌가..?
+ *    - 반례를 찾아보자!
+ */
 public class bfs_10484_erraticAnts {
 
     static final String DIRECTION = "NESW";
+    static final int N = 121;
     static final int INF = 987654321;
 
     static int[] dy = {-1, 0, 1, 0};
     static int[] dx = {0, 1, 0, -1};
 
-    static int[][] map = new int[121][121];
+    static Map<Integer, Set<Integer>> edges;
+    static int end;
 
-    static Point end;
+    static int solve() {
+        Integer start = 60 * N + 60;
 
-//    static int solve() {
-//        int ret = 0;
-//
-//        Queue<Point> q = new LinkedList<>();
-//        q.add(new Point(60, 60));
-//
-//        while(!q.isEmpty()) {
-//            Point now = q.poll();
-//            if(now.y == end.y && now.x == end.x)
-//                return map[now.y][now.x];
-//
-//            for(int dir = 0; dir < 4; dir++) {
-//                int ny = now.y + dy[dir];
-//                int nx = now.x + dx[dir];
-//                if(map[ny][nx] != 0) continue;
-//                map[ny][nx] = map[now.y][now.x] + 1;
-//                q.add(new Point(ny, nx));
-//            }
-//        }
-//
-//        return ret;
-//    }
+        Set<Integer> visit = new HashSet<>();
+        Queue<Integer> q = new LinkedList<>();
+        q.add(start);
+        visit.add(start);
+
+        int ret = 0;
+        while(!q.isEmpty()) {
+            int size = q.size();
+            while(size-- > 0) {
+                Integer now = q.poll();
+                if(now == end)
+                    return ret;
+                for(Integer next : edges.get(now)) {
+                    if(visit.add(next))
+                        q.add(next);
+                }
+            }
+            ret++;
+        }
+
+        return -1;
+    }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int n = Integer.parseInt(br.readLine());
         while(n-- > 0) {
+            edges = new HashMap<>();
             br.readLine();
             int s = Integer.parseInt(br.readLine());
-
-            for(int[] ints : map) {
-                Arrays.fill(ints, INF);
-            }
-
-            Point node = new Point(60, 60);
-            map[60][60] = 0;
+            int y = 60, x = 60;
 
             while(s-- > 0) {
+                int old = y * N + x;
                 int dir = DIRECTION.indexOf(br.readLine().charAt(0));
-                int ny = node.y + dy[dir];
-                int nx = node.x + dx[dir];
-                map[ny][nx] = 0;
-                node = new Point(ny, nx);
+                y += dy[dir];
+                x += dx[dir];
+                int nw = y * N + x;
+                getNode(old).add(nw);
+                getNode(nw).add(old);
             }
-            end = node;
 
-            bw.write(map[node.y][node.x] + "\n");
+            end = y  * N + x;
+            bw.write(solve() + "\n");
         }
 
         bw.flush();
@@ -72,12 +77,13 @@ public class bfs_10484_erraticAnts {
         br.close();
     }
 
-    static class Point {
-        int y;
-        int x;
-        public Point(int y, int x) {
-            this.y = y;
-            this.x = x;
+    static Set<Integer> getNode(int n) {
+        Set<Integer> ret = edges.get(n);
+        if(ret == null) {
+            ret = new HashSet<>();
+            edges.put(n, ret);
         }
+        return ret;
     }
+
 }
