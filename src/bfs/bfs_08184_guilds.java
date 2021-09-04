@@ -12,9 +12,13 @@ public class bfs_08184_guilds {
     static Map<Integer, Set<Integer>> edges = new HashMap<>();
 
     static void setGuild(int start, int type) {
-
+        int same = 0;
+        int dif = 0;
         for(Integer next : edges.get(start)) {
-
+            if(map[next] == type)
+                same++;
+            if(map[next] == N - type)
+                dif++;
         }
     }
 
@@ -33,6 +37,8 @@ public class bfs_08184_guilds {
             getNode(a).add(b);
             getNode(b).add(a);
         }
+
+        //solve();
 
         bw.flush();
         bw.close();
