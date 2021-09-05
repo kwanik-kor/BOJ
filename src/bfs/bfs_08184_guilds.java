@@ -40,6 +40,7 @@ public class bfs_08184_guilds {
 
         //solve();
 
+        
         bw.flush();
         bw.close();
         br.close();
