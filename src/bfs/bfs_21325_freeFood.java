@@ -11,6 +11,12 @@ import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/**
+ * 1. 문제 링크
+ * 2. 풀이
+ *  - 반드시 같은 레벨의 노드들이 정답의 대상이 되지는 않음 다시 푸셈!!!!
+ *
+ */
 public class bfs_21325_freeFood {
 
     static int N, M;
