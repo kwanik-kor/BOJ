@@ -60,7 +60,6 @@ public class bfs_12887_pathGame {
         int ans = 0;
         for(int i = 0; i < 2; i++) {
             if(map[i][0] != -1) {
-                int path =
             }
         }
 
