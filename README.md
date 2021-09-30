@@ -12,8 +12,9 @@ Baekjoon Online Judge - explanation of solved problems and complete code
 ---
 ### Try Again!!!!!!!! :smiling_imp:
 
-- [9204 체스](./src/bfs/bfs_09204_chess.java)
-- [8452 그래프와 쿼리](./src/bfs/bfs_08452_graphAndQuery.java) : 다시 한 번 풀어서 '오프라인 쿼리' 완전 습득하기
+- [08452 그래프와 쿼리](./src/bfs/bfs_08452_graphAndQuery.java) : 다시 한 번 풀어서 '오프라인 쿼리' 완전 습득하기
+- [09204 체스](./src/bfs/bfs_09204_chess.java)
+- [14425 문자열 집합](./src/ds/ds_trie_14425_stringSet.java) : 트라이 자료구조에 대해 다시 살펴보자
 
 ---
 ### Try In Another Way!!! :astonished:
