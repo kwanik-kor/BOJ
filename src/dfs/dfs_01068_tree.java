@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  *   1) 현재 노드에서 더 이상 자식 노드가 없다.
  *   2) 현재 노드에 자식 노드가 하나 있지만, 해당 노드는 지워질 노드다.
  *      > 즉, 현재 노드가 리프노드가 되는 상황
- *      
+ *
  *  - 요거 조건만 잘 맞춰서 Recursive 로 풀어주면됨!
  */
 public class dfs_01068_tree {
