@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  *  - 단, 특정 일자에 특정 떡을 준 case에 대한 방문처리를 하지 않아 시간초과가 났음
  *    > 이에, 방문처리를 추가해서 통과함!
  */
-public class dfs_15900_escapeTree {
+public class dfs_16432_dduckAndTiger {
 
     static int N;
     static boolean solved = false;
