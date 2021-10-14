@@ -32,7 +32,7 @@ public class math_11444_fibonacci6 {
             long a = fibo(idx / 2 - 1) % DIV;
             long b = fibo(idx / 2) % DIV;
 
-            dp.put(idx, (b * (2 * a + b)) % DIV); 
+            dp.put(idx, (b * (2 * a + b)) % DIV);
             return dp.get(idx);
         }
 
