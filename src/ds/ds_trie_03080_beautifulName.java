@@ -17,6 +17,7 @@ public class ds_trie_03080_beautifulName {
 
     static long[] factorial = new long[27];
     static long ans = 1L;
+    static long child = 1L, exist = 1L;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -32,12 +33,33 @@ public class ds_trie_03080_beautifulName {
         }
         Collections.sort(words);
 
+        int current = 0, previous = 0;
+        for(int i = 0; i < N; i++) {
+            if(i == N - 1)
+                current = words.get(i).length();
+            else
+                current = getLength(words.get(i), words.get(i + 1));
+            insert(root, words.get(i), Math.max(current, previous));
+            previous = current;
+        }
+
         search(root);
 
         bw.write(ans + "");
         bw.flush();
         bw.close();
         br.close();
+    }
+
+    static int getLength(String a, String b) {
+        int i = 0;
+        while(true) {
+            if(a.charAt(i) != b.charAt(i))
+                break;
+            else
+                i++;
+        }
+        return i;
     }
 
     static void initFact() {
@@ -47,9 +69,9 @@ public class ds_trie_03080_beautifulName {
         }
     }
 
-    static void insert(TrieNode root, String word) {
+    static void insert(TrieNode root, String word, int max) {
         TrieNode thisNode = root;
-        for(int i = 0, n = word.length(); i < n; i++) {
+        for(int i = 0; i < max; i++) {
             thisNode = thisNode.getChildNode().computeIfAbsent(word.charAt(i), c -> new TrieNode());
         }
         thisNode.setEnd(true);
@@ -58,7 +80,7 @@ public class ds_trie_03080_beautifulName {
     static void search(TrieNode node) {
         for(TrieNode child : node.getChildNode().values())
             search(child);
-        ans = ans * factorial[Math.max(node.getChildNode().size(), 1)] % MOD;
+        ans = ans * factorial[node.getChildNode().size()] % MOD;
     }
 
     static class TrieNode {
