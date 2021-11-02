@@ -33,7 +33,7 @@ public class bellman_01865_wormhole {
             if(!isShortened)
                 break;
         }
-
+        // git test
         return isShortened;
     }
 
