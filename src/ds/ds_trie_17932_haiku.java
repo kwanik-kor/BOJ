@@ -8,9 +8,16 @@ import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 1. 문제 링크 : https://www.acmicpc.net/problem/17932
+ * 2. 풀이
+ *  - Trie 구조로 음절들을 저장해두고, backtracking을 이용해 해당 라인이 하이쿠 조건에 부합하는지 확인한다.
+ */
 public class ds_trie_17932_haiku {
 
-    static final int[] HAIKU = {5, 7, 5};
+    static final int[] HAIKU = {4, 6, 4};
+
+    static String[] words;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,9 +30,9 @@ public class ds_trie_17932_haiku {
         }
 
         boolean flag = true;
-        for(int i = 0; i < N; i++) {
+        for(int i = 0; i < 3; i++) {
             String line = br.readLine();
-            flag = trie.search(line, HAIKU[i]);
+            flag = trie.search(line, 0, HAIKU[i]);
             if(!flag) break;
         }
 
@@ -46,11 +53,27 @@ public class ds_trie_17932_haiku {
             thisNode.setEnd(true);
         }
 
-        boolean search(String line, int syllable) {
-            boolean ret = true;
-            String[] words = line.split(" ");
+        boolean search(String line, int start, int syllable) {
+            if(syllable < 0)
+                return false;
 
-            return ret;
+            TrieNode node = this.root;
+            for(int i = start, n = line.length(); i < n; i++) {
+                if(line.charAt(i) == ' ') {
+                    if(!node.isEnd)
+                        return false;
+                    else
+                        return search(line, i + 1, syllable - 1);
+                } else {
+                    if(node.isEnd && search(line, i, syllable - 1))
+                        return true;
+                }
+                node = node.getChildNode().get(line.charAt(i));
+                if(node == null)
+                    return false;
+            }
+
+            return node != null && node.isEnd && syllable == 0;
         }
     }
 
