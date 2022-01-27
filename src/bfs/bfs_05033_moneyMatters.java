@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
  *  - 친구 관계를 그룹별로 분할하고, 분할된 그룹의 돈을 빌리고 빌려준 금액의 합계가 0원인지 판단한다.
  *   - BFS를 이용한 Group 탐색이 주된 문제의 요점
  */
-public class bfs_5033_moneyMatters {
+public class bfs_05033_moneyMatters {
 
     static int N, M;
     static int[] money;
