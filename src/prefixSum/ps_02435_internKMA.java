@@ -1,4 +1,4 @@
-package cumulativeSum;
+package prefixSum;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  *  - 누적합의 기본적인 형태의 문제
  *   > 입력받은 값을 모두 누적해서 합을 더해둔 다음, K 배열 길이만큼 배주면 됨
  */
-public class cs_02435_internKMA {
+public class ps_02435_internKMA {
 
     static int N, K;
     static int[] sum;
