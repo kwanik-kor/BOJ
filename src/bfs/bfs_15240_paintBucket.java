@@ -8,34 +8,35 @@ import java.util.StringTokenizer;
 /**
  * 1. 문제 링크 : https://www.acmicpc.net/problem/15240
  * 2. 풀이
- *  - 단순 BFS ~
+ *  - 단순 BFS
  */
 public class bfs_15240_paintBucket {
 
-    static int R, C;
+    static int R, C, K;
+    static int[][] map;
     static int[] dy = {-1, 0, 1, 0};
     static int[] dx = {0, 1, 0, -1};
-    static int[][] map;
 
-    static void solve(int y, int x, int color) {
-        int flag = map[y][x];
+    static void solve(Point start) {
+        int initColor = map[start.y][start.x];
+        boolean[][] visit = new boolean[R][C];
 
-        Queue<Integer> q = new LinkedList<>();
-        q.add(y * C + x);
-        map[y][x] = color;
+        Queue<Point> q = new LinkedList<>();
+        q.add(start);
+        visit[start.y][start.x] = true;
 
-        while(!q.isEmpty()) {
-            int now = q.poll();
-            int nowY = now / C;
-            int nowX = now % C;
-            for(int dir = 0; dir < 4; dir++) {
-                int ny = nowY + dy[dir];
-                int nx = nowX + dx[dir];
-                if(ny < 0 || nx < 0 || R <= ny || C <= nx || map[ny][nx] != flag) continue;
-                map[ny][nx] = color;
-                q.add(ny * C + nx);
+        while (!q.isEmpty()) {
+            Point now = q.poll();
+            map[now.y][now.x] = K;
+            for (int dir = 0; dir < 4; dir++) {
+                int ny = now.y + dy[dir];
+                int nx = now.x + dx[dir];
+                if (ny < 0 || nx < 0 || R <= ny || C <= nx || visit[ny][nx] || map[ny][nx] != initColor) continue;
+                visit[ny][nx] = true;
+                q.add(new Point(ny, nx));
             }
         }
+
     }
 
     public static void main(String[] args) throws IOException {
@@ -46,19 +47,22 @@ public class bfs_15240_paintBucket {
         C = Integer.parseInt(st.nextToken());
 
         map = new int[R][C];
-        for(int i = 0; i < R; i++) {
-            char[] arr = br.readLine().toCharArray();
-            for(int j = 0; j < C; j++) {
-                map[i][j] = arr[j] - '0';
+        for (int i = 0; i < R; i++) {
+            String line = br.readLine();
+            for (int j = 0; j < C; j++) {
+                map[i][j] = line.charAt(j) - '0';
             }
         }
 
         st = new StringTokenizer(br.readLine());
-        solve(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+        Point start = new Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+        K = Integer.parseInt(st.nextToken());
 
-        for(int i = 0; i < R; i++) {
-            for(int j = 0; j < C; j++) {
-                bw.write(map[i][j]+"");
+        solve(start);
+
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                bw.write(map[i][j] + "");
             }
             bw.write("\n");
         }
@@ -66,5 +70,14 @@ public class bfs_15240_paintBucket {
         bw.flush();
         bw.close();
         br.close();
+    }
+
+    static class Point {
+        int y, x;
+
+        public Point(int y, int x) {
+            this.y = y;
+            this.x = x;
+        }
     }
 }
