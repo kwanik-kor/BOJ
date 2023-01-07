@@ -7,9 +7,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigInteger;
 
-/**
- * 1. 문제 링크: https://www.acmicpc.net/problem/1837
- */
 public class math_01837_makePassword {
 
     static boolean[] eratos;
