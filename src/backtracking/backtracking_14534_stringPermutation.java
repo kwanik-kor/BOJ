@@ -8,7 +8,7 @@ public class backtracking_14534_stringPermutation {
 
     static char[] line;
 
-    static void permutation(int start, int len, String str, boolean[] visit) {
+    static void permutation(int len, String str, boolean[] visit) {
         if (len == line.length) {
             System.out.println(str);
             return;
@@ -18,7 +18,7 @@ public class backtracking_14534_stringPermutation {
             if (visit[i]) continue;
 
             visit[i] = true;
-            permutation(i + 1, len + 1, str + line[i], visit);
+            permutation(len + 1, str + line[i], visit);
             visit[i] = false;
         }
     }
@@ -31,7 +31,7 @@ public class backtracking_14534_stringPermutation {
             line = br.readLine().toCharArray();
 
             System.out.printf("Case # %d:\n", i);
-            permutation(0, 0, "", new boolean[line.length]);
+            permutation(0, "", new boolean[line.length]);
         }
 
         br.close();
