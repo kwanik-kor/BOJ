@@ -22,33 +22,31 @@ public class math_01064_parallelogram {
             points[i] = new Point(Double.parseDouble(st.nextToken()), Double.parseDouble(st.nextToken()));
         }
 
-        double I1 = 1987654321d;
-        double I2 = 1987654321d;
-        if(points[0].x != points[1].x) I1 = Math.abs(points[1].y - points[0].y) / Math.abs(points[1].x -points[0].x);
-        if(points[1].x != points[2].x) I2 = Math.abs(points[2].y - points[1].y) / Math.abs(points[2].x -points[1].x);
+        if (checkInclination(points[0], points[1], points[2])) {
+            bw.write("-1.0");
+        } else {
+            double abL = getDist(points[0], points[1]);
+            double bcL = getDist(points[1], points[2]);
+            double caL = getDist(points[2], points[0]);
 
-        double ans = 0;
-        if(I1 == I2) ans = -1;
+            double temp1 = (abL + bcL) * 2;
+            double temp2 = (bcL + caL) * 2;
+            double temp3 = (caL + abL) * 2;
 
-        if(ans != -1) {
-            double a = getDist(points[0], points[1]);
-            double b = getDist(points[1], points[2]);
-            double c = getDist(points[2], points[0]);
-
-            double al = 2 * (a + b);
-            double bl = 2 * (b + c);
-            double cl = 2 * (c + a);
-
-            ans = Math.max(al, Math.max(bl, cl)) - Math.min(al, Math.min(bl, cl));
+            double ans = Math.max(temp1, Math.max(temp2, temp3)) - Math.min(temp1, Math.min(temp2, temp3));
+            bw.write(String.format("%.16f", ans));
         }
-        bw.write(ans + "");
-        bw.flush();
+
         bw.close();
         br.close();
     }
 
     static double getDist(Point a, Point b) {
         return Math.sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
+    }
+
+    static boolean checkInclination(Point a, Point b, Point c) {
+        return (b.y - a.y) * (c.x - b.x) == (b.x - a.x) * (c.y - b.y);
     }
 
     static class Point {
