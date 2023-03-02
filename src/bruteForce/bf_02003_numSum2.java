@@ -26,14 +26,17 @@ public class bf_02003_numSum2 {
         }
 
         int cnt = 0;
-        for (int i = 1; i <= N; i++) {
-            if (arr[i] < C) continue;
-            for (int j = 0; j < i; j++) {
-                if (arr[i] - arr[j] == C) {
-                    cnt++;
-                }
-            }
-        }
+        int start = 0;
+        int end = 1;
+        do {
+            long diff = arr[end] - arr[start];
+            if (diff == C) cnt++;
+
+            if (diff >= C) start++;
+            else end++;
+
+            if (start == end) end++;
+        } while (end <= N);
 
         bw.write(cnt + "");
         bw.close();
