@@ -1,82 +1,80 @@
 package bfs;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 1. 문제 링크: https://www.acmicpc.net/problem/12887
+ */
 public class bfs_12887_pathGame {
-
+    static final int[] dy = {-1, 0, 1, 0};
+    static final int[] dx = {0, 1, 0, -1};
+    static final char WHITE = '.', BLACK = '#';
+    static char[][] map;
     static int M;
-    static int white = 0, black = 0;
-    static int[] dy = {-1, 0, 1, 0};
-    static int[] dx = {0, 1, 0, -1};
-    static int[][] map;
-
-    static int bfs(Point start) {
-        boolean[][] visit = new boolean[2][M];
-
-        Queue<Point> q = new LinkedList<>();
-        q.add(start);
-        visit[start.y][start.x] = true;
-        while(!q.isEmpty()) {
-            Point now = q.poll();
-            if(now.x == M - 1)
-                return now.n;
-
-            for(int dir = 0; dir < 4; dir++) {
-                int ny = now.y + dy[dir];
-                int nx = now.x + dx[dir];
-                if(ny < 0 || nx < 0 || 2 <= ny || M <= nx || map[ny][nx] == -1 || visit[ny][nx]) continue;
-                visit[ny][nx] = true;
-                q.add(new Point(ny, nx, now.n + 1));
-            }
-        }
-
-        return -1;
-    }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         M = Integer.parseInt(br.readLine());
 
-        map = new int[2][M];
-        for(int i = 0; i < 2; i++) {
-            char[] arr = br.readLine().toCharArray();
-            for(int j = 0; j < M; j++) {
-                if(arr[j] == '#') {
-                    black++;
-                    map[i][j] = -1;
-                } else {
+        map = new char[2][M];
+        int white = 0;
+        for (int i = 0; i < 2; i++) {
+            String line = br.readLine();
+            for (int j = 0; j < M; j++) {
+                map[i][j] = line.charAt(j);
+                if (map[i][j] == WHITE) {
                     white++;
                 }
             }
         }
 
-        int ans = 0;
-        for(int i = 0; i < 2; i++) {
-            if(map[i][0] != -1) {
-            }
-        }
+        int shortestLength = bfs();
 
-
-        bw.flush();
-        bw.close();
+        System.out.println(white - shortestLength + "");
         br.close();
     }
 
-    static class Point {
-        int y;
-        int x;
-        int n;
-        public Point(int y, int x, int n) {
-            this.y = y;
-            this.x = x;
-            this.n = n;
+    static int bfs() {
+        int len = 0;
+
+        Queue<Integer> q = new LinkedList<>();
+        boolean[][] visit = new boolean[2][M];
+        for (int i = 0; i < 2; i++) {
+            if (map[i][0] == WHITE) {
+                q.add(i * M);
+                visit[i][0] = true;
+            }
         }
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+
+            while (size-- > 0) {
+                int now = q.poll();
+                int y = now / M;
+                int x = now % M;
+
+                if (x == M - 1) {
+                    return len + 1;
+                }
+
+                for (int dir = 0; dir < 4; dir++) {
+                    int ny = y + dy[dir];
+                    int nx = x + dx[dir];
+
+                    if (ny < 0 || nx < 0 || 2 <= ny || M <= nx || visit[ny][nx] || map[ny][nx] == BLACK) continue;
+
+                    visit[ny][nx] = true;
+                    q.add(ny * M + nx);
+                }
+            }
+
+            len++;
+        }
+
+        return len;
     }
+
 }
