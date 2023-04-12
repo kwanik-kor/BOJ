@@ -1,0 +1,32 @@
+package simulation;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+/**
+ * 1. 문제 링크: https://www.acmicpc.net/problem/27890
+ */
+public class sml_27890_specialSmallFountain {
+    static final int FLAG = 6;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int amount = Integer.parseInt(st.nextToken());
+        int time = Integer.parseInt(st.nextToken());
+
+        while (time-- > 0) {
+            amount = (amount % 2 == 0) ? amount / 2 : amount * 2;
+            amount ^= FLAG;
+        }
+
+        bw.write(amount + "");
+        bw.close();
+        br.close();
+    }
+}
