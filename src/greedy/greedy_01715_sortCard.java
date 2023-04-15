@@ -18,16 +18,11 @@ public class greedy_01715_sortCard {
             pq.add(Integer.parseInt(br.readLine()));
         }
 
-        int cnt = 0;
         int tot = 0;
-        while (!pq.isEmpty()) {
-            if (cnt == N - 1) break;
-            int a = pq.poll();
-            int b = pq.poll();
-
-            tot += (a + b);
-            pq.add(a + b);
-            cnt++;
+        while (pq.size() != 1) {
+            int joined = pq.poll() + pq.poll();
+            tot += (joined);
+            pq.add(joined);
         }
 
         bw.write(tot + "");
