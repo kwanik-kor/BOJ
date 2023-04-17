@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
+/**
+ * 1. 문제 링크: https://www.acmicpc.net/problem/2873
+ */
 public class greedy_02873_rollerCoaster {
     static final String DIRECTION = "UD";
     static final int[] dy = {-1, 1};
@@ -118,27 +121,20 @@ public class greedy_02873_rollerCoaster {
         int colDirection = 1;
         int y = startRow;
         for (int x = 0; x < C; x++) {
-            int ny = y + dy[colDirection];
-
-            if (ny == passNodeIdx / C && x == passNodeIdx % C) {
-                if (!(ny == R - 1 && x == C - 1)) {
-                    sb.append('R');
-                }
-                continue;
-            }
-
-            sb.append(DIRECTION.charAt(colDirection));
-            if (!((ny == R - 1 || ny + 1 == R - 1) && (x + 1 == C - 1 || x == C - 1))) {
+            if (x != 0) {
                 sb.append('R');
             }
+            int ny = y + dy[colDirection];
+            if (ny == passNodeIdx / C && x == passNodeIdx % C) {
+                continue;
+            }
+            sb.append(DIRECTION.charAt(colDirection));
             y = ny;
             colDirection ^= 1;
         }
-
         if (startRow + 1 != R - 1) {
             sb.append('D');
         }
-
         return sb.toString();
     }
 
