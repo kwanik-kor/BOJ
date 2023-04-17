@@ -32,6 +32,9 @@ public class greedy_02873_rollerCoaster {
         bw.close();
     }
 
+    /**
+     * 배열 초기화 및 최소지점 반환
+     */
     private int initializeAndGetMinPlace() throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -79,6 +82,9 @@ public class greedy_02873_rollerCoaster {
         return sb.toString();
     }
 
+    /**
+     * 행/열의 길이가 모두 짝수인 경우 탐색
+     */
     private String createEvenPaths(int minIdx) {
         StringBuilder sb = new StringBuilder();
 
@@ -96,6 +102,11 @@ public class greedy_02873_rollerCoaster {
         return sb.toString();
     }
 
+    /**
+     * 행 우선 탐색
+     * @param startRow 시작 행 번호
+     * @param startFromLeft 왼쪽부터 시작하는지 여부
+     */
     private String rowFirstSearch(int startRow, boolean startFromLeft) {
         StringBuilder sb = new StringBuilder();
 
@@ -115,6 +126,11 @@ public class greedy_02873_rollerCoaster {
         return sb.toString();
     }
 
+    /**
+     * 열 우선 탐색
+     * @param startRow 시작 행 번호
+     * @param passNodeIdx 최소지점 IDX
+     */
     private String colFirstSearch(int startRow, int passNodeIdx) {
         StringBuilder sb = new StringBuilder();
 
