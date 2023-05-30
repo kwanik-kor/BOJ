@@ -1,64 +1,36 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
 
 public class Test {
 
-    static int[][][] maps = new int[3][6][6]; // 입력된 전개도를 저장할 배열
-    static boolean[] visited = new boolean[6]; // DFS 탐색 시 방문 여부를 저장할 배열
-    static int[][] adj = {{1, 3, 4}, {0, 2, 4}, {1, 5, 4}, {0, 4, 5}, {0, 1, 2, 3}, {2, 3, 4, 5}}; // 인접한 면의 인덱스를 저장한 배열
-    static boolean found; // 정육면체를 찾았는지 여부를 저장할 변수
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        // 입력된 전개도를 저장
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 6; j++) {
-                String[] input = sc.nextLine().split(" ");
-                for (int k = 0; k < 6; k++) {
-                    maps[i][j][k] = Integer.parseInt(input[k]);
-                }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String[] arr = br.readLine().split(",");
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0, n = arr.length; i < n; i++) {
+            if (i == 0) {
+                list.add(Integer.parseInt(arr[i]));
+                continue;
             }
+            if (Integer.parseInt(arr[i]) == Integer.parseInt(arr[i - 1])) {
+                continue;
+            }
+            list.add(Integer.parseInt(arr[i]));  
         }
 
-        // 세 전개도에 대해 DFS 탐색
-        for (int i = 0; i < 3; i++) {
-            found = false;
-            dfs(i, 0);
-            if (found) {
-                System.out.println("yes");
-            } else {
-                System.out.println("no");
-            }
+        for (Integer val : list) {
+            System.out.println(val);
         }
+
+        bw.flush();
+        bw.close();
+        br.close();
     }
-
-    // DFS 탐색 함수
-    static void dfs(int mapIndex, int depth) {
-        if (depth == 6) { // 모든 면을 방문한 경우
-            found = true;
-            return;
-        }
-
-        for (int i = 0; i < 6; i++) {
-            if (!visited[i]) {
-                boolean match = true;
-                for (int j = 0; j < adj[i].length; j++) {
-                    int adjIndex = adj[i][j];
-                    int row = adjIndex / 3;
-                    int col = adjIndex % 3;
-                    if (maps[mapIndex][row][col] != 1) { // 인접한 면이 맞지 않는 경우
-                        match = false;
-                        break;
-                    }
-                }
-
-                if (match) { // 인접한 면이 맞는 경우
-                    visited[i] = true;
-                    dfs(mapIndex, depth + 1);
-                    visited[i] = false;
-                }
-            }
-        }
-    }
-
 }
