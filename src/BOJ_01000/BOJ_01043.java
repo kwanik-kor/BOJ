@@ -1,4 +1,4 @@
-package N_01000.N_01000;
+package BOJ_01000;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 import static java.util.Collections.sort;
 
-public class P_01043 {
+public class BOJ_01043 {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     private static int[] parents;
