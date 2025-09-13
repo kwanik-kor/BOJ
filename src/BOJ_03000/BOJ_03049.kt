@@ -1,4 +1,4 @@
-package BOJ_3000
+package BOJ_03000
 
 fun main() {
     val n = readLine()!!.toInt()
