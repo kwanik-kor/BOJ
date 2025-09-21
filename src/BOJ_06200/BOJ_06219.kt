@@ -1,4 +1,4 @@
-package BOJ_33700
+package BOJ_06200
 
 import kotlin.math.sqrt
 
